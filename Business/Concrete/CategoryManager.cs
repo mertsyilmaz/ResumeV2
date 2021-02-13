@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    class CategoryManager : ICategoryManager
+    public class CategoryManager : ICategoryManager
     {
         ICategoryDal _categoryDal;
 
@@ -35,7 +35,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Category>> GetAll()
         {
-            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
+            var result = new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
+            return result;
         }
 
         public IDataResult<Category> GetById(int? categoryId)
